@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Write</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+<body>
+	<form action="" method="post">
+		<table class="table">
+			{% csrf_token %}
+			{{ form.as_table }}
+		</table>
+		<button type="submit" class="btn btn btn-primary">저장</button>
+		<a href="{% url 'myboard:list' %}" class="btn btn-default">목록으로</a>
+	</form>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>

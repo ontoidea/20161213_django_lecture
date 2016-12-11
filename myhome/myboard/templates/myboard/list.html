@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>List</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<table class="table">
+{% if list %}
+	<tr>
+		<th>ID</th>
+		<th>Title</th>
+		<th>Name</th>
+		<th>Date</th>
+	</tr>
+	{% for article in list %}
+	<tr>
+		<td>{{ article.id }}{# forloop.revcounter #}</td>
+		<td>
+			<a href="{% url 'myboard:view' article.id %}">
+				{{ article.title|truncatechars:70 }}
+			</a>
+		</td>
+	    <td>{{ article.name }}</td>
+	    <td>{{ article.cdate }}</td>
+	</tr>
+    {% endfor %}
+    
+{% else %}
+	<tr>
+		<td>글이 없습니다.</td>
+	</tr>
+{% endif %}
+</table>
+<a href="{% url 'myboard:write' %}" class="btn btn-default">글쓰기</a>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>
